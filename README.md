@@ -1,5 +1,8 @@
-google-source-plugin
+Jenkins Google Source Plugin
 ====================
+
+Read more: http://wiki.jenkins-ci.org/display/JENKINS/Google+Source+Plugin
+
 
 This plugin provides the credential provider to use Google Cloud Platform OAuth Credentials (provided by the Google OAuth Plugin) to access source code from https://source.developer.google.com as well as https://*.googlesource.com. It supports both kinds of credentials provided by Google OAuth Plugin: Google Service Account from metadata as well as Google Service Account from private key.
 
@@ -17,3 +20,33 @@ Then, when configuring the Git repository for your Jenkins job, if you enter a h
 Similarly, if you enter a https://source.developer.google.com Git repository, your Credentials box will be populated with credentials having the https://www.googleapis.com/auth/projecthosting scope.
 
 Select the required credential, then your job is ready to go!
+
+Development
+===========
+
+How to build
+--------------
+
+	mvn clean verify
+
+Creates the plugin HPI package for use with Jenkins.
+
+
+License
+-------
+
+	(The Apache v2 License)
+
+    Copyright 2013 Google Inc. All Rights Reserved.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
