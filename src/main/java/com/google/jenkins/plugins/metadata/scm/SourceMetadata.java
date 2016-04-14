@@ -34,6 +34,7 @@ import com.google.jenkins.plugins.metadata.MetadataValue;
  * consists of the SCM being used, the source URL, the branch and the revision
  * being built.
  */
+@Deprecated
 @JsonTypeInfo(use = Id.NAME, include = As.WRAPPER_OBJECT)
 @JsonTypeName(value = ".scm.SourceMetadata")
 // TODO(nghia): Fix the "register subtype" issue.
