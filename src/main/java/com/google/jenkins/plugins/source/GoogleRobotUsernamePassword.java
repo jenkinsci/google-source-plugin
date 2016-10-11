@@ -187,7 +187,12 @@ public class GoogleRobotUsernamePassword extends BaseStandardCredentials
   /** {@inheritDoc} */
   @Override
   public String getDescription() {
-    return CredentialsNameProvider.name(getCredentials());
+    final GoogleRobotCredentials credentials = getCredentials();
+    if (credentials == null) {
+      return "";
+    } else {
+      return CredentialsNameProvider.name(credentials);
+    }
   }
 
   /** {@inheritDoc} */
