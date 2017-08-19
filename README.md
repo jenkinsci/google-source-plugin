@@ -7,7 +7,7 @@ Read more: http://wiki.jenkins-ci.org/display/JENKINS/Google+Source+Plugin
 This plugin provides the credential provider to use Google Cloud Platform OAuth Credentials (provided by the Google OAuth Plugin) to access source code from https://source.developer.google.com as well as https://*.googlesource.com. It supports both kinds of credentials provided by Google OAuth Plugin: Google Service Account from metadata as well as Google Service Account from private key.
 
 
-1. In order to use a Git repository hosted on https://source.developer.google.com, your credential will need the scope https://www.googleapis.com/auth/projecthosting.  Your service account will need to have access to the repository’s Google Cloud Platform project.
+1. In order to use a Git repository hosted on https://source.developer.google.com, your credential will need the scope https://www.googleapis.com/auth/source.read_write.  Your service account will need to have access to the repository’s Google Cloud Platform project.
 
 1. In order to use https://*.googlesource.com, your credential will need the scope https://www.googleapis.com/auth/gerritcodereview.  Your service account will need to be whitelisted by the maintainers of that repository.
 
@@ -17,7 +17,7 @@ First, configure your OAuth credentials per instructions from Google OAuth Plugi
 
 Then, when configuring the Git repository for your Jenkins job, if you enter a https://*.googlesource.com address in the “Repository URL” text area, your Credentials drop box will automatically be populated with credentials having the https://www.googleapis.com/auth/gerritcodereview scope
 
-Similarly, if you enter a https://source.developer.google.com Git repository, your Credentials box will be populated with credentials having the https://www.googleapis.com/auth/projecthosting scope.
+Similarly, if you enter a https://source.developer.google.com Git repository, your Credentials box will be populated with credentials having the https://www.googleapis.com/auth/source.read_write scope.
 
 Select the required credential, then your job is ready to go!
 

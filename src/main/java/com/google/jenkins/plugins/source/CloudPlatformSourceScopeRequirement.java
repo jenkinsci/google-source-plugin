@@ -27,6 +27,6 @@ public class CloudPlatformSourceScopeRequirement
   @Override
   public Collection<String> getScopes() {
     return ImmutableList.of(
-        "https://www.googleapis.com/auth/projecthosting");
+        "https://www.googleapis.com/auth/source.read_write");
   }
 }
