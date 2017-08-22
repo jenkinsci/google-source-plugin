@@ -102,9 +102,7 @@ public class GoogleRobotUsernamePasswordModule
     CLOUD_PLATFORM(new Domain("cloud_platform", "",
         ImmutableList.of(
             new SchemeSpecification("https"),
-            new HostnameSpecification(Joiner.on(",").join(
-                "code.google.com",
-                "source.developers.google.com"), "")
+            new HostnameSpecification("source.developers.google.com", "")
         )), new CloudPlatformSourceScopeRequirement()) {
       /** {@inheritDoc} */
       @Override

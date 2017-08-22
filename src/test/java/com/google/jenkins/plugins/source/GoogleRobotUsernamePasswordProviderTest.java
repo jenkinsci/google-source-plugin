@@ -427,50 +427,6 @@ public class GoogleRobotUsernamePasswordProviderTest {
   }
 
   @Test
-  public void testEndToEnd_CloudFlatform() throws Exception {
-    // This is exactly like testEndToEndNoRequirements_CloudPlatform, except it
-    // adds a DomainRequirement that is consistent with the credential type.
-    List<DomainRequirement> requirements =
-        Lists.<DomainRequirement>newArrayList(
-            new HostnameRequirement("code.google.com"),
-            new SchemeRequirement("https")
-        );
-    List<String> expectedCredentialsIds = Lists.newArrayList("foo", "bar");
-    // Quickly sanity-check this behavior or else the mocked return values
-    // proscribed may not reflect reality and we risk infite recursion inside
-    // the implementation class.
-    assertFalse(UsernamePasswordCredentials.class.isAssignableFrom(
-        GoogleRobotCredentials.class));
-    // Proscribe mock behavior.
-    when(fakeProvider.getCredentials(
-        eq(GoogleRobotCredentials.class), eq(Jenkins.getInstance()),
-        eq(ACL.SYSTEM), buildMyDomainRequirementMatcher(
-            ImmutableList.<DomainRequirement>of(
-                new CloudPlatformSourceScopeRequirement()))))
-        .thenReturn(getInputCredentials(expectedCredentialsIds));
-    when(fakeProvider.getCredentials(
-        eq(UsernamePasswordCredentials.class), eq(Jenkins.getInstance()),
-        eq(ACL.SYSTEM), buildMyDomainRequirementMatcher(
-            requirements))).thenReturn(
-        new LinkedList<UsernamePasswordCredentials>());
-
-    assertEquals(getExpectedOutputCredentials(expectedCredentialsIds,
-            GoogleRobotUsernamePasswordModule.Strategy.CLOUD_PLATFORM),
-        CredentialsProvider.lookupCredentials(UsernamePasswordCredentials.class,
-            Jenkins.getInstance(), ACL.SYSTEM, requirements));
-
-    verify(fakeProvider).getCredentials(
-        eq(GoogleRobotCredentials.class), eq(Jenkins.getInstance()),
-        eq(ACL.SYSTEM), buildMyDomainRequirementMatcher(
-            ImmutableList.<DomainRequirement>of(
-                new CloudPlatformSourceScopeRequirement())));
-    verify(fakeProvider).getCredentials(
-        eq(UsernamePasswordCredentials.class), eq(Jenkins.getInstance()),
-        eq(ACL.SYSTEM), buildMyDomainRequirementMatcher(requirements));
-    verifyNoMoreInteractions(fakeProvider);
-  }
-
-  @Test
   public void testEndToEnd_Gerrit() throws Exception {
     // This is exactly like testEndToEndNoRequirements_CloudPlatform, except
     // it adds a DomainRequirement that is consistent with the credential type.

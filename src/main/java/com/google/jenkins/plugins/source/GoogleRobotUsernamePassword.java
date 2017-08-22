@@ -102,8 +102,8 @@ public class GoogleRobotUsernamePassword extends BaseStandardCredentials
 
   /**
    * This type of credentials only works for authenticating against
-   * "code.google.com" and "source.developers.google.com" hosted repositories,
-   * for which we require "https".
+   * and "source.developers.google.com" hosted repositories, for which
+   * we require "https".
    */
   @Override
   public boolean matches(List<DomainRequirement> requirements) {
