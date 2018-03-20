@@ -39,7 +39,8 @@ import hudson.security.ACL;
 /**
  * This class automatically wraps existing GoogleRobotCredentials instances
  * into a username password credential type that is compatible with source
- * control plugins like the Git Plugin.  In this way, a 'source.read_write'-scoped
+ * control plugins like the Git Plugin.
+ * In this way, a 'source.read_write'-scoped
  * Oauth credential can be reused for source access to that project's source
  * without manually creating further credentials.
  */
