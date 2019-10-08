@@ -143,7 +143,8 @@ public class GoogleRobotUsernamePassword extends BaseStandardCredentials
    * serialize things.
    */
   private boolean areOnMaster() {
-    return Hudson.getInstance() != null;
+
+    return Hudson.getInstanceOrNull() != null;
   }
 
   /**
