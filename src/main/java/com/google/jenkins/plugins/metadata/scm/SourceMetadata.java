@@ -130,13 +130,13 @@ public class SourceMetadata implements MetadataValue {
    */
   @Override
   public String toString() {
-    return Objects.toStringHelper(getClass())
-        .add("scm", scm)
-        .add("repoUrl", repoUrl)
-        .add("branch", branch)
-        .add("revision", revision)
-        .add("lastAuthor", lastAuthor)
-        .toString();
+    return "SourceMetadata{" +
+            "scm='" + scm + '\'' +
+            ", repoUrl='" + repoUrl + '\'' +
+            ", branch='" + branch + '\'' +
+            ", revision='" + revision + '\'' +
+            ", lastAuthor='" + lastAuthor + '\'' +
+            '}';
   }
 
   @JsonIgnore
